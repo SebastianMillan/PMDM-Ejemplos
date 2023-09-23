@@ -8,17 +8,39 @@
             integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     </head>
     <body>
-        <h1 class="m-3">Caesar Cipher</h1>
+        <h1 class="m-3 text-center">Caesar Cipher</h1>
+        <div class="container">
+            <div class="row">
+                <div class="col-2">
+                    <label for="valorDespz">Valor Desplazamiento</label>
+                    <input type="text" class="form-control" id="valorDespz">
+                </div>
+            </div>
+
+        </div>
         <div class="container">
             <div class="row">
                 <div class="col-xl-6">
                     <label for="message">Message</label>
-                    <textarea class="form-control" placeholder="" id="message"></textarea>
-                    <button type="button" class="btn btn-primary my-2" id="btnTrad">Traducir</button> 
+                    <textarea class="form-control" placeholder="Write a text" id="message"></textarea>
+                    <button type="button" class="btn btn-primary my-2" id="btnTrad">Traducir</button>
                 </div>
                 <div class="col-xl-6">
                     <p>Caesar Message</p>
                     <p id="caesarMess"></p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <label for="caesarText">Caesar Message</label>
+                    <textarea class="form-control" placeholder="Write a Caesar Text" id="caesarText"></textarea>
+                    <button type="button" class="btn btn-primary my-2" id="btnDesc">Descrifrar</button>
+                </div>
+                <div class="col-xl-6">
+                    <p>Message</p>
+                    <p id="messageTrad"></p>
                 </div>
             </div>
         </div>

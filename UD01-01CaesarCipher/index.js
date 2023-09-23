@@ -1,21 +1,25 @@
 $(document).ready(() => {
     var abc = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M',
         'N', 'Ñ', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-    var message;
+    var message, caesarText, caesarArray, valorDesplz;
     var caesarMessage = [];
-    var messageArray;
+    var messageArray = [];
+    var messageTrad = [];
 
+    $(document).on('change', () => {
+        valorDesplz = $('#valorDespz').val();
+    });
     $(document).on('click', '#btnTrad', () => {
-        message = $("#message").val().toUpperCase();
+        message = $('#message').val().toUpperCase();
         messageArray = message.split('');
         for (let i = 0; i < messageArray.length; i++) {
             if (messageArray[i] != ' ') {
                 for (let j = 0; j < abc.length; j++) {
                     if (messageArray[i] == abc[j]) {
-                        if (j >= 24) {
-                            caesarMessage[i] = abc[(j + 3) % 27];
+                        if (j > abc.length - valorDesplz) {
+                            caesarMessage[i] = abc[(j + valorDesplz) % abc.length];
                         } else {
-                            caesarMessage[i] = abc[j + 3];
+                            caesarMessage[i] = abc[j + valorDesplz];
                         }
                     }
                 }
@@ -24,5 +28,25 @@ $(document).ready(() => {
             }
         }
         $('#caesarMess').text(caesarMessage.join(''));
+    });
+    $(document).on('click', '#btnDesc', () => {
+        caesarText = $('#caesarText').val().toUpperCase();
+        caesarArray = caesarText.split('');
+        for (let i = 0; i < caesarArray.length; i++) {
+            if (caesarArray[i] != ' ') {
+                for (let j = 0; j < abc.length; j++) {
+                    if (caesarArray[i] == abc[j]) {
+                        if (j < valorDesplz) {
+                            messageTrad[i] = abc[j + (abc.length - valorDesplz)];
+                        } else {
+                            messageTrad[i] = abc[j - valorDesplz];
+                        }
+                    }
+                }
+            } else {
+                messageTrad[i] = ' ';
+            }
+        }
+        $('#messageTrad').text(messageTrad.join(''));
     });
 });
