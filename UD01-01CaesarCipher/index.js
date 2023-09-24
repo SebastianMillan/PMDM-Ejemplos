@@ -10,13 +10,14 @@ $(document).ready(() => {
         valorDesplz = $('#valorDespz').val();
     });
     $(document).on('click', '#btnTrad', () => {
+        caesarMessage = [];
         message = $('#message').val().toUpperCase();
         messageArray = message.split('');
         for (let i = 0; i < messageArray.length; i++) {
             if (messageArray[i] != ' ') {
                 for (let j = 0; j < abc.length; j++) {
                     if (messageArray[i] == abc[j]) {
-                        if (j > abc.length - valorDesplz) {
+                        if (j > (valorDesplz - abc.length)) {
                             caesarMessage[i] = abc[(j + valorDesplz) % abc.length];
                         } else {
                             caesarMessage[i] = abc[j + valorDesplz];
@@ -30,6 +31,7 @@ $(document).ready(() => {
         $('#caesarMess').text(caesarMessage.join(''));
     });
     $(document).on('click', '#btnDesc', () => {
+        messageTrad = [];
         caesarText = $('#caesarText').val().toUpperCase();
         caesarArray = caesarText.split('');
         for (let i = 0; i < caesarArray.length; i++) {
