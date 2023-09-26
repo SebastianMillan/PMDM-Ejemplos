@@ -12,7 +12,7 @@
             <form>
                 <div class="mb-3">
                     <label for="titulo" class="form-label fw-bold">Titulo*</label>
-                    <input type="text" class="form-control" id="titulo">
+                    <input type="text" class="form-control" id="titulo" name="titulo">
                     <div class="invalid-feedback">
                         Introduzca un título
                     </div>
@@ -21,7 +21,7 @@
                     <div class="col-8">
                         <div class="mb-3">
                             <label for="url" class="form-label fw-bold">Slug URL*</label>
-                            <input type="text" class="form-control" id="url">
+                            <input type="text" class="form-control" id="url" name="url">
                             <div class="invalid-feedback">
                                 Genere una URL
                             </div>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="mb-3">
                     <label for="descripcion" class="form-label fw-bold">Descripción*</label>
-                    <textarea class="form-control" id="descripcion"></textarea>
+                    <textarea class="form-control" id="descripcion" name="descripcion"></textarea>
                     <div class="invalid-feedback">
                         Introduzca una descripción
                     </div>
@@ -41,7 +41,7 @@
                 <div class="mb-3 security visually-hidden">
                     <span id="preguntaNumber"></span>
                     <label class="form-label" for="numberProtect"></label>
-                    <input type="number" id="numberProtect" class="form-control" />
+                    <input type="number" id="numberProtect" class="form-control" name="numberProtect" />
 
                 </div>
                 <button type="button" class="btn btn-primary" id="btnAcept">Aceptar</button>
