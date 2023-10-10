@@ -11,4 +11,4 @@ b = 4;
 let total: number;
 total = a + b;
 
-console.log(total);
+console.log(total); 
