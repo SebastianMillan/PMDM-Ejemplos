@@ -13,8 +13,6 @@ $(document).ready(() => {
                     </div>`;
 
             $('#listaPlanetas').append(templatePlanetas);
-
-
         });
 
         $('.planeta').click(function () {
@@ -24,8 +22,5 @@ $(document).ready(() => {
             $('#namePlanet').text(listaPlanetas[idPlaneta].name);
             $('#imgPlaneta').attr("src", "https://starwars-visualguide.com/assets/img/planets/" + idPlaneta + ".jpg")
         });
-
     });
-
-
 });
