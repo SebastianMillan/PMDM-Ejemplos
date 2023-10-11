@@ -1,0 +1,10 @@
+.tipoCar{
+    color: rgb(146, 146, 146);
+}
+.imgCoche{
+    position: relative;
+    left: 50px;
+}
+.cardPrecio, .card{
+    border-radius: 25px;
+}
