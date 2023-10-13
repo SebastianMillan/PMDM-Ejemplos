@@ -18,6 +18,7 @@ import { CardRestauranteComponent } from './card-restaurante/card-restaurante.co
   ],
   imports: [
     BrowserModule,
+    
     NgbModule
   ],
   providers: [],
