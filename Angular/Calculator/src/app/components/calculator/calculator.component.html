@@ -1,7 +1,7 @@
  <div id="calculator">
-    <div class="row w-25">
+    <div class="row w-25 bg-primary mx-auto mt-4 border border-black border-3">
         <div class="col-12 m-3">
-            <p>{{result}}</p>
+            <p class="fs-1 fw-bold">{{screen}}</p>
         </div>
         <div class="col-4">
             <button type="button" (click)="getDigit(1)" class="btn fw-bold fs-2">1</button>
@@ -31,13 +31,16 @@
             <button type="button" (click)="getDigit(9)" class="btn fw-bold fs-2">9</button>
         </div>
         <div class="col-4">
-            <button type="button" class="btn fw-bold fs-2">+</button>
+            <button type="button" (click)="sum()" class=" btn fw-bold fs-2">+</button>
         </div>
         <div class="col-4">
-            <button type="button" class="btn fw-bold fs-2">-</button>
+            <button type="button" (click)="rest()" class=" btn fw-bold fs-2">-</button>
         </div>
         <div class="col-4">
-            <button type="button" class="btn fw-bold fs-2">=</button>
+            <button type="button" (click)="getResult()" class="btn fw-bold fs-2">=</button>
+        </div>
+        <div class="col-4">
+            <button type="button" (click)="clear()" class="btn fw-bold fs-2">Clear</button>
         </div>
     </div>
 </div>

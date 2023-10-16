@@ -9,26 +9,46 @@ export class CalculatorComponent {
   number1 = 0;
   number2 = 0;
   result = 0;
-  screen = "";
+  screen = "0";
+  num1Conseguido = false;
+  suma = false;
+  resta = false;
+
   getDigit(num: number) {
-    if (this.number1 == 0)
+    if (!this.num1Conseguido) {
+      this.num1Conseguido = true;
       this.number1 = num;
-      this.screen.concat("{this.number2}");
-    else {
+      this.screen = "";
+      this.screen += this.number1;
+    } else {
       this.number2 = num;
-      this.screen.concat("{this.number2}");
-    }
-      
+      this.screen += this.number2;
+      this.num1Conseguido = false;
+    }   
   }
-  sum(num1:number, num2:number) {
-    this.result = num1 + num2;
-    this.screen.concat("+")
+  sum() {
+    this.suma = true;
+    this.resta = false;
+    this.screen += "+";
   }
-  rest(num1:number, num2:number) {
-    this.result = num1 - num2;
-    this.screen.concat("-")
+  rest() {
+    this.resta = true;
+    this.suma = false;
+    this.screen += "-";
   }
   getResult() {
-    return this.screen.concat(result);
+    
+    if (this.suma) {
+      this.result = this.number1 + this.number2;
+    }
+    if (this.resta) {
+        this.result = this.number1 - this.number2;
+    }
+    this.screen += "=" + this.result;
+  
+  }
+  clear() {
+    
+    this.screen = "";
   }
 }
