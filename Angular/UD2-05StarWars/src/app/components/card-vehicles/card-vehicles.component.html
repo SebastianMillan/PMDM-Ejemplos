@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="row">
+        <div *ngFor="let v of lista" class="col-3 mt-2">
+            <div class="card" style="width: 18rem;">
+                <img src="{{putImg(v)}}" class="card-img-top" alt="imagen vehiculo">
+                <div class="card-body">
+                    <h5 class="card-title fw-bold">{{v.name}}</h5>
+                    <span class="card-text">Modelo: {{v.model}}</span><br>
+                    <span class="card-text">Clase: {{v.vehicle_class}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
