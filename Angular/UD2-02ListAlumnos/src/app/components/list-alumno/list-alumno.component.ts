@@ -15,7 +15,7 @@ const listAlumno: Alumno[] = [
       },
       {
         "nombre": "DI",
-        "numHoras": 54,
+        "numHoras": 50,
       },
       {
         "nombre": "PMDM",
@@ -63,11 +63,17 @@ const listAlumno: Alumno[] = [
 })
 export class ListAlumnoComponent {
   list = listAlumno;
-
-  getAllMod(modulos: modulos) {
-    
+  nameModulos = "";
+  horasMatriculaCompleta = 90;
+  numHoras = 0;
+  
+  getAllMod(a: Alumno) {
+    this.nameModulos = "";
+    for (let i = 0; i < a.modulos.length; i++) {
+      this.nameModulos+=" "+a.modulos[i].nombre
+    }
+    return this.nameModulos;
   }
-
 
   getImgSex(sexo: String) {
     if (sexo == 'H' || sexo == 'h') {
@@ -76,6 +82,17 @@ export class ListAlumnoComponent {
       return "bi bi-gender-female";
     } else {
       return "bi bi-gender-ambiguous";
+    }
+  }
+  getMatCompl(a: Alumno) {
+    this.numHoras = 0;
+    for (let i = 0; i < a.modulos.length; i++) {
+      this.numHoras += a.modulos[i].numHoras;
+    }
+    if (this.numHoras == 90) {
+      return "Completa"
+    } else {
+      return "Parcial"
     }
   }
 }

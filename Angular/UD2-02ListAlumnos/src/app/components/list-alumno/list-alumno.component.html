@@ -1,13 +1,26 @@
 <div class="container">
-    <div class="row">
-        <div *ngFor="let a of list" class="col-3">
-            <div class="card" style="width: 18rem;">
-                <div class="card-body">
-                    <h5 class="card-title fw-bold">{{a.nombre}} {{a.apellidos}}</h5>
-                    <span class="card-text"></span>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>IdAlumno</th>
+                <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Edad</th>
+                <th>Sexo</th>
+                <th>Modulos</th>
+                <th>Tipo Matrícula</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of list">
+                <td>{{a.id}}</td>
+                <td>{{a.nombre}}</td>
+                <td>{{a.apellidos}}</td>
+                <td>{{a.edad}}</td>
+                <td>{{a.sexo}}<i (class)="getImgSex(a.sexo)"></i></td>
+                <td>{{getAllMod(a)}}</td>
+                <td>{{getMatCompl(a)}}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
