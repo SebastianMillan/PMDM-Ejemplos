@@ -53,7 +53,6 @@ const listAlumno: Alumno[] = [
       }
     ]
   }
-  
 ]
 
 @Component({
