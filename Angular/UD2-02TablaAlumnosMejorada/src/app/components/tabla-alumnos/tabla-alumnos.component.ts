@@ -64,6 +64,13 @@ export class TablaAlumnosComponent {
   listaAlumnos = ALUMNOS;
   displayedColumns : string[] = ['id','nombre','apellidos','edad','sexo','modulos']
 
+  checkedId = true;
+  checkedNombre = true;
+  checkedApellido = true;
+  checkedEdad = false;
+  checkedSexo = false;
+  checkedModulos = false;
+
   getAllMod(a: Alumno) {
     let nameModulos: string;
     nameModulos = "";
@@ -72,4 +79,33 @@ export class TablaAlumnosComponent {
     }
     return nameModulos;
   }
+
+  addColumn(nombreTabla:string) {
+    let id = this.displayedColumns.indexOf(nombreTabla);
+    this.displayedColumns.slice(id);
+  }
+  getCheckedId(checkedId:boolean) {
+    if (checkedId) 
+      this.addColumn("id");
+    else
+      this.removeColumn("id");
+  }
+  getCheckedNombre(checkedNombre:boolean) {
+    if (checkedNombre) 
+      this.addColumn("nombre");
+    else
+      this.removeColumn("nombre");
+  }
+
+  getCheckedApellido(checkedApellido:boolean) {
+    if (checkedApellido) 
+      this.addColumn("apellidos");
+    else
+      this.removeColumn("apellidos");
+  }
+
+  removeColumn(nombreTabla:string) {
+    this.displayedColumns.push(nombreTabla);
+  }
+
 }
