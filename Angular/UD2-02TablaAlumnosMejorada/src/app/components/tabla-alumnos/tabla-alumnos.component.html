@@ -1,10 +1,11 @@
 <div class="example-section m-1">
-    <span class="m-2"><mat-checkbox [(ngModel)]="checkedId" formControlName="id">Id</mat-checkbox></span>
-    <span class="m-2"><mat-checkbox [(ngModel)]="checkedNombre" formControlName="nombre">Nombre</mat-checkbox></span>
-    <span class="m-2"><mat-checkbox [(ngModel)]="checkedApellido" formControlName="apellidos">Apellidos</mat-checkbox></span>
-    <span class="m-2"><mat-checkbox [(ngModel)]="checkedEdad" formControlName="edad">Edad</mat-checkbox></span>
-    <span class="m-2"><mat-checkbox [(ngModel)]="checkedSexo" formControlName="sexo">Sexo</mat-checkbox></span>
-    <span class="m-2"><mat-checkbox [(ngModel)]="checkedModulos" formControlName="modulos">Modulos</mat-checkbox></span>
+    <span class="m-2"><mat-checkbox (change)="eventCheck($event.checked, 'id')" formControlName="id" checked>Id</mat-checkbox></span>
+    <span class="m-2"><mat-checkbox (change)="eventCheck($event.checked, 'nombre')" formControlName="nombre" checked>Nombre</mat-checkbox></span>
+    <span class="m-2"><mat-checkbox (change)="eventCheck($event.checked, 'apellidos')" formControlName="apellidos"
+            checked>Apellidos</mat-checkbox></span>
+    <span class="m-2"><mat-checkbox (change)="eventCheck($event.checked, 'edad')" formControlName="edad" checked>Edad</mat-checkbox></span>
+    <span class="m-2"><mat-checkbox (change)="eventCheck($event.checked, 'sexo')" formControlName="sexo" checked>Sexo</mat-checkbox></span>
+    <span class="m-2"><mat-checkbox (change)="eventCheck($event.checked, 'modulos')" formControlName="modulos" checked>Modulos</mat-checkbox></span>
 </div>
 <table mat-table [dataSource]="listaAlumnos" class="mat-elevation-z8">
     <ng-container matColumnDef="id">
