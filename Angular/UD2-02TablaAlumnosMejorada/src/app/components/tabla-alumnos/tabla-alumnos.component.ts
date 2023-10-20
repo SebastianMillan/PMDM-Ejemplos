@@ -82,13 +82,7 @@ export class TablaAlumnosComponent {
 
   addColumn(nombreTabla:string) {
     let pos = this.displayedColumns.indexOf(nombreTabla);
-    this.displayedColumns.splice(pos, 0, nombreTabla);
-  }
-  getCheckedId(checkedId:boolean) {
-    if (checkedId) 
-      this.addColumn("id");
-    else
-      this.removeColumn("id");
+    this.displayedColumns.splice(0, pos, nombreTabla);
   }
   removeColumn(nombreTabla: string) {
     let id = this.displayedColumns.indexOf(nombreTabla);
