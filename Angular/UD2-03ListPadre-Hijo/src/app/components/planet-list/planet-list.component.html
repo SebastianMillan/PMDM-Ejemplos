@@ -1,0 +1,9 @@
+<div class="container">
+    <div class="row">
+        <div class="col-4" *ngFor="let p of listPlanets">
+            <div class="border border-black border-3 m-2 p-3">
+                <app-planet-item [planet]="p"></app-planet-item>
+            </div>
+        </div>
+    </div>
+</div>
