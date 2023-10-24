@@ -1,0 +1,4 @@
+<div class="row">
+    <app-people-item-component *ngFor="let p of listPeople" [people]="p" class="col-4"
+        (peopleClick)="onPeopleClicked($event)"></app-people-item-component>
+</div>
