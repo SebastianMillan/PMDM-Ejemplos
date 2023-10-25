@@ -1,0 +1,7 @@
+<div class="card" style="width: 18rem;" class="border-2 border-black border rounded p-3 shadow">
+    <img [src]="agent.displayIcon" class="card-img-top" alt="imagen agente valorant">
+    <div class="card-body">
+        <h5 class="card-title fs-3 fw-bold">{{agent.displayName}}</h5>
+        <button (click)="viewAgentDetail()" class="btn btn-dark mt-2">Ver Detalle</button>
+    </div>
+</div>

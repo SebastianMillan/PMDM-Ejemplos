@@ -1,0 +1,4 @@
+<div class="row mx-auto">
+    <app-agent-item-component class="col-3 mt-3" (agentClick)="onAgentlicked(a.uuid)" [agent]="a"
+        *ngFor="let a of agenteList">{{a.displayName}}</app-agent-item-component>
+</div>

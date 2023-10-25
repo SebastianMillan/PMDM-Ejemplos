@@ -16,8 +16,8 @@ export class PeopleItemComponentComponent {
   constructor(private modalService: NgbModal) { }
   
   viewPeopleDetail(modal: any) {
-    //this.peopleClick.emit(this.peopleId);
-    this.peopleName = this.people.name;
+    this.peopleClick.emit(this.peopleId);
+    //this.peopleName = this.people.name;
   }
 
   getPeopleImg() {

@@ -272,5 +272,6 @@ export class PeopleListComponentComponent {
   listPeople = PEOPLE_RESPONSE.results;
   
   onPeopleClicked(idPeople: string) {
+    
   }
 }
