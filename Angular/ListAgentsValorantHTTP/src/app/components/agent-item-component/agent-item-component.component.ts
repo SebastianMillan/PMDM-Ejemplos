@@ -10,7 +10,7 @@ export class AgentItemComponentComponent {
   @Input() agent!: Agent;
   @Output() agentClick = new EventEmitter<string>();
 
-  viewAgentDetail() {
-    this.agentClick.emit();
+  viewAgentDetail(uuid: string) {
+    this.agentClick.emit(uuid);
   }
 }
