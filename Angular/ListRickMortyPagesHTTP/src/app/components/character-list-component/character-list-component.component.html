@@ -1,0 +1,8 @@
+<div class="row">
+    <app-character-item-component [character]="c" *ngFor="let c of listCharacter" class="col-3 mt-3"></app-character-item-component>
+    <div class="mt-4">
+        <ngb-pagination [collectionSize]="count" [pageSize]="pageSize" [maxSize]="cantPageShow" [(page)]="page"
+            aria-label="Default pagination"
+            class="d-flex justify-content-center" (pageChange)="pageSelected()"></ngb-pagination>
+    </div>
+</div>
