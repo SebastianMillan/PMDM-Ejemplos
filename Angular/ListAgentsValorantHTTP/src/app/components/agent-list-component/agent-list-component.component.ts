@@ -25,10 +25,10 @@ export class AgentListComponentComponent implements OnInit{
 
   onAgentlicked(uuid: string, modal: any) {
     this.agentService.getAgentById(uuid).subscribe(agent => {
-      this.agenName = agent.data.displayName;
-      this.agentDesc = agent.data.description;
-      this.agentIcon = agent.data.displayIcon;
-      this.agentRole = agent.data.role.displayName;
+      this.agenName = agent.displayName;
+      this.agentDesc = agent.description;
+      this.agentIcon = agent.displayIcon;
+      this.agentRole = agent.role.displayName;
       this.modalService.open(modal, {
         size:'lg'
       });

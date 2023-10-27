@@ -1,0 +1,29 @@
+<div class="mx-auto">
+    <app-agent-search-component (nameAgentToSearch)></app-agent-search-component>
+</div>
+<div class="row">
+    <app-agent-details-component *ngFor="let a of listAgents" [agent]="a" class="col-3 mt-3"
+        (agentClick)="onAgentClicked($event, agentModal)"></app-agent-details-component>
+</div>
+
+<ng-template #agentModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title fw-bold" id="modal-basic-title">{{agentName}}</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-5">
+                <img [src]="agentIcon" alt="imagen agente">
+            </div>
+            <div class="col-7">
+                <span class="fw-bold fs-3">Name:</span><br>
+                <span>{{agentName}}</span><br>
+                <span class="fw-bold fs-3">Role:</span><br>
+                <span>{{agentRole}}</span><br>
+                <span class="fw-bold fs-3">Description:</span><br>
+                <span>{{agentDesc}}</span>
+            </div>
+        </div>
+    </div>
+</ng-template>
