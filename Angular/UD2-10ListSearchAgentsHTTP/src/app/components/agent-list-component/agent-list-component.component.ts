@@ -10,15 +10,25 @@ import { AgentService } from 'src/app/service/agent.service';
 })
 export class AgentListComponentComponent implements OnInit{
   listAgents: Agent[] = [];
-  constructor(private agentService: AgentService, private ngbModal: NgbModal) { }
   agentIcon = '';
   agentName = '';
   agentRole = '';
   agentDesc = '';
 
+  constructor(private agentService: AgentService, private ngbModal: NgbModal) { }
+
   ngOnInit(): void {
     this.agentService.getAgentList().subscribe(resp => {
-      this.listAgents = resp.data;
+      this.listAgents = resp.data.filter(a => a.isPlayableCharacter);
+    })
+  }
+
+  searchingAgent(name: string) {
+    this.agentService.getAgentList().subscribe(resp => {
+      this.listAgents = resp.data.filter(a => {
+        a.displayName.toLowerCase().includes(name.toLowerCase())
+        && a.isPlayableCharacter
+      })
     })
   }
 
@@ -30,8 +40,7 @@ export class AgentListComponentComponent implements OnInit{
       this.agentDesc = resp.data.description;
       this.ngbModal.open(modal, {
         size: 'lg'
-      }
-    )
+      })
     })
   }
 }

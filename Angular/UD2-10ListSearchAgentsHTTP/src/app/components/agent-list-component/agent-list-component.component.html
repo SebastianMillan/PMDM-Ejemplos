@@ -1,5 +1,5 @@
 <div class="mx-auto">
-    <app-agent-search-component (nameAgentToSearch)></app-agent-search-component>
+    <app-agent-search-component (nameAgentToSearch)="searchingAgent($event)"></app-agent-search-component>
 </div>
 <div class="row">
     <app-agent-details-component *ngFor="let a of listAgents" [agent]="a" class="col-3 mt-3"
