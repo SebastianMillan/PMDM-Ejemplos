@@ -1,4 +1,5 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { OutletContext } from '@angular/router';
 import { Movie } from 'src/app/models/movie-list.interface';
 
 @Component({
@@ -8,8 +9,16 @@ import { Movie } from 'src/app/models/movie-list.interface';
 })
 export class MovieItemComponentComponent {
   @Input() movie!: Movie;
+  @Output() movieClick = new EventEmitter<number>();
 
   getMovieImg() {
     return `https://image.tmdb.org/t/p/w500${this.movie.poster_path}`;
   }
+
+  viewMovieDetail(id:number) {
+    this.movieClick.emit(id);
+  }
+
+
+
 }

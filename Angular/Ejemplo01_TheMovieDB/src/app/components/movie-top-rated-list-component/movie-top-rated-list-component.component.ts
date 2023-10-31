@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Movie } from 'src/app/models/movie-list.interface';
 import { MovieService } from 'src/app/services/movie.service';
 
@@ -10,11 +11,28 @@ import { MovieService } from 'src/app/services/movie.service';
 export class MovieTopRatedListComponentComponent implements OnInit{
 
   topRatedMovieList: Movie[] = [];
-
-  constructor(private movieService: MovieService) { }
+  movieName = '';
+  movieOverview = '';
+  movieImg = '';
+  movieLenguaje = '';
+  movieReleaseDate = '';
+  constructor(private movieService: MovieService, private modalService: NgbModal) { }
   
   ngOnInit(): void {
     this.getAllMovies();
+  }
+
+  onMovieClicked(id: number, modal: any) {
+    this.movieService.getMovieById(id).subscribe(mo => {
+      this.movieName = mo.title
+      this.movieOverview = mo.overview;
+      this.movieLenguaje = mo.original_language;
+      this.movieReleaseDate = mo.release_date;
+      this.movieImg = `https://image.tmdb.org/t/p/w500${mo.poster_path}`
+      this.modalService.open(modal, {
+        size:'lg'
+      });
+    })
   }
 
   getAllMovies() {

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Movie } from 'src/app/models/movie-list.interface';
 import { MovieService } from 'src/app/services/movie.service';
 
@@ -8,22 +9,26 @@ import { MovieService } from 'src/app/services/movie.service';
   styleUrls: ['./movie-popular-list-component.component.css']
 })
 export class MoviePopularListComponentComponent implements OnInit{
+
   popularMovieList: Movie[] = [];
   movieName = '';
   movieOverview = '';
   movieImg = '';
-  constructor(private movieService: MovieService) { }
+  movieLenguaje = '';
+  movieReleaseDate = '';
+  constructor(private movieService: MovieService, private modalService: NgbModal) { }
   
   ngOnInit(): void {
     this.getAllMovies();
   }
 
-  onAgentlicked(uuid: string, modal: any) {
-    this.movieService.getAgentById(uuid).subscribe(agent => {
-      this.agenName = agent.displayName;
-      this.agentDesc = agent.description;
-      this.agentIcon = agent.displayIcon;
-      this.agentRole = agent.role.displayName;
+  onMovieClicked(id: number, modal: any) {
+    this.movieService.getMovieById(id).subscribe(mo => {
+      this.movieName = mo.title
+      this.movieOverview = mo.overview;
+      this.movieLenguaje = mo.original_language;
+      this.movieReleaseDate = mo.release_date;
+      this.movieImg = `https://image.tmdb.org/t/p/w500${mo.poster_path}`
       this.modalService.open(modal, {
         size:'lg'
       });
