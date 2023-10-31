@@ -1,0 +1,4 @@
+<h2 class="text-center fw-bold">TOP RATED MOVIES</h2>
+<ul class="list-group list-group-horizontal position-relative overflow-auto">
+    <app-movie-item-component class="list-group-item" *ngFor="let m of topRatedMovieList" [movie]="m"></app-movie-item-component>
+</ul>

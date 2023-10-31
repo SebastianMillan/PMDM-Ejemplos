@@ -1,0 +1,23 @@
+<h2 class="text-center fw-bold">POPULAR MOVIES</h2>
+<ul class="list-group list-group-horizontal position-relative overflow-auto">
+    <app-movie-item-component class="list-group-item" *ngFor="let m of popularMovieList" [movie]="m"
+        (movieClick)="onMovieClicked($event, movieModal)"></app-movie-item-component>
+</ul>
+
+<ng-template #movieModal let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title fw-bold" id="modal-basic-title">{{movieName}}</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <div class="row">
+            <div class="col-5">
+                <img [src]="agentIcon" alt="imagen agente">
+            </div>
+            <div class="col-7">
+                <span class="fw-bold fs-3">Overview:</span><br>
+                <span>{{movieOverview}}</span><br>
+            </div>
+        </div>
+    </div>
+</ng-template>
