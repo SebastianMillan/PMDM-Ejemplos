@@ -8,7 +8,9 @@ import { MovieListComponent } from './components/movie-list/movie-list.component
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { SeachDetailComponent } from './components/seach-detail/seach-detail.component';
 import { TrailersListComponent } from './components/trailers-list/trailers-list.component';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http';
+import { MovieFullDetailComponent } from './components/movie-full-detail/movie-full-detail.component'
+
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { HttpClientModule } from '@angular/common/http'
     MovieListComponent,
     MovieDetailComponent,
     SeachDetailComponent,
-    TrailersListComponent
+    TrailersListComponent,
+    MovieFullDetailComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

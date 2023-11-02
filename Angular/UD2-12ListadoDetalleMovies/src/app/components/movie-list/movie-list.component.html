@@ -1,8 +1,9 @@
 <div class="row">
-    <app-movie-detail *ngFor="let m of movieList" [movie]="m" class="col-3 my-2"></app-movie-detail>
+    <app-movie-detail *ngFor="let m of movieList" [movie]="m" class="col-3 my-2" [routerLink]="['/movie', m.id]"></app-movie-detail>
 </div>
 <div class="mt-4">
     <ngb-pagination [collectionSize]="totalMovies" [pageSize]="numMoviesByPage" [maxSize]="cantPageShow" [(page)]="page"
         aria-label="Default pagination"
-        class="d-flex justify-content-center" (pageChange)="loadPage()" [routerLink]="['/movies/', page]"></ngb-pagination>
+        class="d-flex justify-content-center" (pageChange)="loadPage()" [routerLink]="['/movies']"
+        [queryParams]="{page:page}" queryParamsHandling="merge"></ngb-pagination>
 </div>

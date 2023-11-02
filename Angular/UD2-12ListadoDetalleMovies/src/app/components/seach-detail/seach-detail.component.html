@@ -3,7 +3,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
-                    <a class="nav-link fs-3" aria-current="page" routerLink="/movies">Movies</a>
+                    <a class="nav-link fs-3" aria-current="page" [routerLink]="['/movies']" [queryParams]="{page:1}">Movies</a>
                 </li>
             </ul>
         </div>
