@@ -8,7 +8,6 @@ const routes: Routes = [
   {path: 'berry', component: ListBerryComponentComponent},
   {path: '', pathMatch: 'full', component: ListPokemonComponentComponent},
   {path:'**', component:ListPokemonComponentComponent}
-
 ];
 
 @NgModule({
