@@ -7,7 +7,6 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { MovieDetailComponent } from './components/movie-detail/movie-detail.component';
 import { SeachDetailComponent } from './components/seach-detail/seach-detail.component';
-import { TrailersListComponent } from './components/trailers-list/trailers-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MovieFullDetailComponent } from './components/movie-full-detail/movie-full-detail.component'
 
@@ -18,7 +17,6 @@ import { MovieFullDetailComponent } from './components/movie-full-detail/movie-f
     MovieListComponent,
     MovieDetailComponent,
     SeachDetailComponent,
-    TrailersListComponent,
     MovieFullDetailComponent
   ],
   imports: [

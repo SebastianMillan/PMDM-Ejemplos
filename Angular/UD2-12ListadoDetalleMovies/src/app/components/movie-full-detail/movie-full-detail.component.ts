@@ -18,7 +18,7 @@ export class MovieFullDetailComponent implements OnInit{
   movieTrailers: Trailer[] = [];
   urlVideo = '';
 
-  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
+  constructor(private route: ActivatedRoute, private movieService: MovieService, private sanitazer : DomSanitizer) { }
   
   ngOnInit(): void {
     this.route.params.subscribe(p => this.id = +p['id'] )
@@ -36,9 +36,9 @@ export class MovieFullDetailComponent implements OnInit{
 
   getURLVideo(video: Trailer) {
     if (video.site == 'YouTube') {
-      return `https://www.youtube.com/embed/${video.key}`;
+      return this.sanitazer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${video.key}`);
     } else {
-      return `https://player.vimeo.com/video/${video.key}`;
+      return this.sanitazer.bypassSecurityTrustResourceUrl(`https://player.vimeo.com/video/${video.key}`);
     }
   }
 }
