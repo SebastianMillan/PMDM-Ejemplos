@@ -40,4 +40,5 @@ export class MoviePopularListComponentComponent implements OnInit{
       this.popularMovieList = resp.results;
     })
   }
+  getMoviesByCategory
 }
