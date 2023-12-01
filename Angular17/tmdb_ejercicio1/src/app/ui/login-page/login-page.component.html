@@ -1,7 +1,9 @@
 <div class="border border-1 border-white mx-auto w-25 p-3 rounded">
-    <label for="email" class="text-white">Email address</label>
-    <input type="email" class="form-control" id="email" [formControl]="email">
-    <label for="password" class="text-white mt-2">Password: </label>
-    <input id="password" class="form-control" type="password" [formControl]="password">
-    <button type="button" class="btn btn-light mt-3" (click)="login()">LOGIN</button>
+    <form action="post" [formGroup]="loginForm" (ngSubmit)="login()">
+        <label for="email" class="text-white">Email address</label>
+        <input type="email" class="form-control" id="email" formControlName="email">
+        <label for="password" class="text-white mt-2">Password: </label>
+        <input id="password" class="form-control" type="password" formControlName="password">
+        <button type="submit" class="btn btn-light mt-3" [disabled]="!loginForm.valid">LOGIN</button>
+    </form>
 </div>

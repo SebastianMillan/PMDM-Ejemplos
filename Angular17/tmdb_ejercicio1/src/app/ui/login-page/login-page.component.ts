@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Validators } from '@angular/forms';
 
 @Component({
@@ -8,10 +8,13 @@ import { Validators } from '@angular/forms';
   styleUrl: './login-page.component.css'
 })
 export class LoginPageComponent {
-  email = new FormControl('', [Validators.required, Validators.email]);
-  password = new FormControl('', Validators.required);
+  
+  loginForm = new FormGroup({
+    email: new FormControl('', [Validators.required, Validators.email]),
+    password : new FormControl('', Validators.required)
+  })  
 
   login() {
-    debugger;
+    alert(this.loginForm.status)
   }
 }
