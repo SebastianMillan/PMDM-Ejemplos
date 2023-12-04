@@ -15,6 +15,7 @@ export class ProfilePageComponent implements OnInit{
   ngOnInit(): void {
     this.accountService.getMyLists().subscribe(resp => {
       this.listOfList = resp.results;
+      console.log(resp.results);
     })
   }
 }

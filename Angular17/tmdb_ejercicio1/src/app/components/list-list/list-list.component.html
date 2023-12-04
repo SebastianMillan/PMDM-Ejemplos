@@ -1,6 +1,26 @@
 <h1 class="text-white text-center">LISTAS PERSONALES</h1>
 <button type="button" class="btn btn-light text-center" [routerLink]="['/createList']">Crear lista</button>
 <div class="row">
+    <div class="col-3 text-center">
+        <span class="fw-bold fs-4 text-white">Nombre</span>
+    </div>
+    <div class="col-5 text-center">
+        <span class="fw-bold fs-4 text-white">Descripción</span>
+    </div>
+    <div class="col-1 text-center">
+        <span class="fw-bold fs-4 text-white">Número</span>
+    </div>
+    <div class="col-1 text-center">
+        <span class="fw-bold fs-4 text-white">Detalle</span>
+    </div>
+    <div class="col-1 text-center">
+        <span class="fw-bold fs-4 text-white">Vaciar</span>
+    </div>
+    <div class="col-1 text-center">
+        <span class="fw-bold fs-4 text-white">Eliminar</span>
+    </div>
+</div>
+<div class="row">
     @for (list of listOfList; track $index) {
     <app-lista-card [listToShow]="list" class="col-12"></app-lista-card>
     }

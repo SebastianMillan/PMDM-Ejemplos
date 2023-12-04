@@ -20,8 +20,9 @@ export class AccountService {
     })
   }
 
+  //{{baseUrl}}/account/:account_id/lists?api_key=in fugiat&session_id=7a72a35f1288d8409c04f71682f6a5cf961f4706
   getMyLists(): Observable<ListOfListsResponse>{
-    return this.http.get<ListOfListsResponse>(`${environment.apiBaseUrl}/account/lists?session_id=${localStorage.getItem('session_id')}`, {
+    return this.http.get<ListOfListsResponse>(`${environment.apiBaseUrl}/account/:account_id/lists?session_id=${localStorage.getItem('session_id')}`, {
        headers: {
         'Authorization': `Bearer ${environment.tmdbToken}`
       }

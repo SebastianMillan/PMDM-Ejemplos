@@ -26,7 +26,7 @@ export class ListService {
     })
   }
 
-  getDetailList(id:string): Observable<DetailListResponse>{
+  getDetailList(id:number): Observable<DetailListResponse>{
     return this.http.get<DetailListResponse>(`${environment.apiBaseUrl}/list/${id}?session_id=${localStorage.getItem('session_id')}`,
     {
       headers: {
@@ -57,7 +57,7 @@ export class ListService {
     })
   }
 
-  removeList(id:string): Observable<ListResponse>{
+  removeList(id:number): Observable<ListResponse>{
     return this.http.delete<ListResponse>(`${environment.apiBaseUrl}/list/${id}?session_id=${localStorage.getItem('session_id')}`,
      {
       headers: {
@@ -66,7 +66,7 @@ export class ListService {
     })
   }
 
-  clearList(id:string): Observable<ListResponse>{
+  clearList(id:number): Observable<ListResponse>{
     return this.http.post<ListResponse>(`${environment.apiBaseUrl}/list/${id}/clear?confirm=true&session_id=${localStorage.getItem('session_id')}`, {},
      {
       headers: {
