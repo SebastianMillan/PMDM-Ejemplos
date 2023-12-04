@@ -1,0 +1,11 @@
+<div class="border border-1 border-white mx-auto w-25 p-3 rounded">
+    <form action="post" [formGroup]="createListForm" (ngSubmit)="createList()">
+        <label for="name" class="text-white">Nombre: </label>
+        <input type="text" class="form-control" id="name" formControlName="name">
+        <label for="description" class="text-white mt-2">Descripción: </label>
+        <input id="description" class="form-control" type="text" formControlName="description">
+        <label for="language" class="text-white mt-2">Idioma: </label>
+        <input id="language" class="form-control" type="text" formControlName="language">
+        <button type="submit" class="btn btn-light mt-3" [disabled]="!createListForm.valid">LOGIN</button>
+    </form>
+</div>

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { List } from '../../models/list-of-lists.interface';
 
 @Component({
   selector: 'app-lista-card',
@@ -6,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './lista-card.component.css'
 })
 export class ListaCardComponent {
-  
+  @Input() listToShow!: List;
 }

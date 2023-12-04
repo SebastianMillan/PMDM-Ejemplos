@@ -1,0 +1,7 @@
+<h1 class="text-white text-center">LISTAS PERSONALES</h1>
+<button type="button" class="btn btn-light text-center" [routerLink]="['/createList']">Crear lista</button>
+<div class="row">
+    @for (list of listOfList; track $index) {
+    <app-lista-card [listToShow]="list" class="col-12"></app-lista-card>
+    }
+</div>

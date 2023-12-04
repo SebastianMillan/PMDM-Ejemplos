@@ -11,6 +11,10 @@ import { AuthApprovedComponent } from './components/auth-approved/auth-approved.
 import { ProfileDetailComponent } from './components/profile-detail/profile-detail.component';
 import { ProfilePageComponent } from './ui/profile-page/profile-page.component';
 import { ListaCardComponent } from './components/lista-card/lista-card.component';
+import { ListListComponent } from './components/list-list/list-list.component';
+import { ListListPageComponent } from './ui/list-list-page/list-list-page.component';
+import { FormListPageComponent } from './ui/form-list-page/form-list-page.component';
+import { HttpFeatureKind, provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { ListaCardComponent } from './components/lista-card/lista-card.component
     AuthApprovedComponent,
     ProfileDetailComponent,
     ProfilePageComponent,
-    ListaCardComponent
+    ListaCardComponent,
+    ListListComponent,
+    ListListPageComponent,
+    FormListPageComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,8 @@ import { ListaCardComponent } from './components/lista-card/lista-card.component
     NgbModule
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

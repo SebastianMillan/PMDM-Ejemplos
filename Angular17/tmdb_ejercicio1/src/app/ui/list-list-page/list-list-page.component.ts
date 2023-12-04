@@ -3,11 +3,12 @@ import { List } from '../../models/list-of-lists.interface';
 import { AccountService } from '../../services/account.service';
 
 @Component({
-  selector: 'app-profile-page',
-  templateUrl: './profile-page.component.html',
-  styleUrl: './profile-page.component.css'
+  selector: 'app-list-list-page',
+  templateUrl: './list-list-page.component.html',
+  styleUrl: './list-list-page.component.css'
 })
-export class ProfilePageComponent implements OnInit{
+export class ListListPageComponent implements OnInit{
+  
   listOfList: List[] = [];
 
   constructor(private accountService: AccountService) { }
@@ -17,4 +18,5 @@ export class ProfilePageComponent implements OnInit{
       this.listOfList = resp.results;
     })
   }
+  
 }
