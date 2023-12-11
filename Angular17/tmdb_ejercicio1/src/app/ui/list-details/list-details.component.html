@@ -1,0 +1,9 @@
+<div class="container">
+    <h1 class="text-white text-center">{{listDetail.name}}</h1>
+    <span class="text-white text-center fst-italic fs-4">{{listDetail.description}}</span>
+    <div class="row">
+        @for (item of listDetail.items; track $index) {
+        <app-item-card [itemToShow]="item" class="col-3"></app-item-card>
+        }
+    </div>
+</div>

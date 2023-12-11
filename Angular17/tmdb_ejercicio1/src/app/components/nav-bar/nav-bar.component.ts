@@ -4,6 +4,8 @@ import { RequestTokenResponse } from '../../models/request-token.interface';
 import { environment } from '../../../environment/environment';
 import { Observable } from 'rxjs';
 import { SessionResponse } from '../../models/session.interface';
+import { AuthService } from '../../services/auth.service';
+import { AccountService } from '../../services/account.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -12,24 +14,29 @@ import { SessionResponse } from '../../models/session.interface';
 })
 export class NavBarComponent {
 
-  constructor(private http: HttpClient) { }
+  successSession: boolean = false;
+  avatarPath: string = '';
+
+  constructor(private authService: AuthService, private accountService: AccountService){}
   
-  getRequestToken(): Observable<RequestTokenResponse>{
-    return this.http.get<RequestTokenResponse>(`${environment.apiBaseUrl}/authentication/token/new`, {
-      headers: {
-        'Authorization': `Bearer ${environment.tmdbToken}`
+  ngOnInit(): void {
+    this.accountService.getAccountDetails().subscribe(resp => {
+      if (resp != null) {
+        this.successSession = true;
+        this.avatarPath = resp.avatar.tmdb.avatar_path;
       }
     })
   }
 
-  createSession(token: string): Observable<SessionResponse>{
-    return this.http.post<SessionResponse>(`${environment.apiBaseUrl}/authentication/session/new`, {
-      request_token: token
-    }, {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${environment.tmdbToken}`
-      }
+  logging() {
+    this.authService.getRequestToken().subscribe(resp => {
+      localStorage.setItem('request_token', resp.request_token);
+      window.location.href = `https://www.themoviedb.org/authenticate/${localStorage.getItem('request_token')}?redirect_to=http://localhost:4200/approved`;
     })
   }
+
+  getImgAvatar() {
+    return `https://image.tmdb.org/t/p/w500${this.avatarPath}`;
+  }
+  
 }
