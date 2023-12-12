@@ -13,7 +13,8 @@ export const environment = {
         messagingSenderId: "786939493731",
         appId: "1:786939493731:web:7d14da25958cf6ee7be756",
         measurementId: "G-51KSDVTDL1"
-    }
+    },
+    title: 'AngularFirebaseProject DEV'
 }
 
 // Initialize Firebase
