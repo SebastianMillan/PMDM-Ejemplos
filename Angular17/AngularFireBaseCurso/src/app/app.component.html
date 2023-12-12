@@ -1,13 +1,26 @@
 <div *ngIf="authService.user | async as user; else login" class="loginDiv">
-  <span class="text-center fs-3 fw-bold">{{user.displayName}} - {{user.email}}</span>
+  <span class="text-center fs-3 fw-bold">{{user.uid}} - {{user.email}}</span>
   <div class="text-center w-50 p-3 mx-auto">
     <button (click)="authService.logout()" class="btn btn-warning">Logout</button>
   </div>
 </div>
 
 <ng-template #login>
-  <div class="loginDiv text-center w-50 p-3 mx-auto">
-    <button (click)="authService.gloging()" class="btn btn-primary">Login</button>
+  <div class="w-25 text-center mx-auto">
+    <form class="border-2 border-white rounded-3 border p-3" method="post">
+      <div class="mb-3">
+        <input type="email" class="form-control" name="email" [(ngModel)]="authService.email" placeholder="EMAIL">
+      </div>
+      <div class="mb-3">
+        <input type="password" class="form-control" name="password" [(ngModel)]="authService.password"
+          placeholder="PASSWORD">
+      </div>
+      <button (click)="authService.loging()" type="submit"
+        class="btn btn-warning mt-3 border-1 border border-black">LOGIN</button>
+      <button (click)="authService.gloging()" type="submit" class="btn btn-warning mt-3 border-1 border border-black">GOOGLE</button>
+
+    </form>
   </div>
 </ng-template>
+
 <router-outlet></router-outlet>

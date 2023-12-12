@@ -9,7 +9,10 @@ import { GoogleAuthProvider } from "firebase/auth";
 })
 export class AuthService {
 
-  constructor(private auth: AngularFireAuth) { }
+  email = '';
+  password = '';
+
+  constructor(public auth: AngularFireAuth) { }
 
   //authState es un observable que nos va a dar información del usuario
   user = this.auth.authState.pipe(map(authState => {
@@ -23,6 +26,13 @@ export class AuthService {
   
   loging() {
     console.log('login');
+    this.auth.signInWithEmailAndPassword(this.email, this.password)
+      .then(user => {
+        console.log('user logado: ', user);
+      })
+      .catch(error => {
+        console.log('error user logado: ', error);
+      })
   }
 
   logout() {

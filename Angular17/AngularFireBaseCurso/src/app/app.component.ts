@@ -9,7 +9,8 @@ import { AuthService } from './services/auth.service';
 })
 export class AppComponent {
   title = environment.title;
-
+  email =! '';
+  password = '';
   constructor(public authService: AuthService) { }
   
 }
