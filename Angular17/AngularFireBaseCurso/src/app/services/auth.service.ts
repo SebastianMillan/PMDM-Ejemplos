@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { map } from 'rxjs/operators';
 import { GoogleAuthProvider } from "firebase/auth";
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+
 
 
 @Injectable({
@@ -12,7 +14,7 @@ export class AuthService {
   email = '';
   password = '';
 
-  constructor(public auth: AngularFireAuth) { }
+  constructor(public auth: AngularFireAuth, private db: AngularFireDatabase) { }
 
   //authState es un observable que nos va a dar información del usuario
   user = this.auth.authState.pipe(map(authState => {
@@ -29,6 +31,9 @@ export class AuthService {
     this.auth.signInWithEmailAndPassword(this.email, this.password)
       .then(user => {
         console.log('user logado: ', user);
+        this.email = '';
+        this.password = '';
+        this.updateUserData(user.user);
       })
       .catch(error => {
         console.log('error user logado: ', error);
@@ -45,9 +50,33 @@ export class AuthService {
     this.auth.signInWithPopup(new GoogleAuthProvider())
       .then(user => {
         console.log('user logado: ', user);
+        this.email = '';
+        this.password = '';
+        this.updateUserData(user.user);
       })
       .catch(error => {
         console.log('error user logado: ', error);
       })
+  }
+
+  updateUserData(user: any) {
+    console.log('user: ', user);
+    const path = 'users/'+user.uid;
+    const u = {
+      email: user.email
+    }
+    //Si el objeto en este path existe lo actualiza o sino lo crea
+    this.db.object(path).update(u)
+      .catch(error => console.log(error));
+  }
+
+  getUsers() {
+    const path = 'users/';
+    return this.db.list(path).snapshotChanges();
+  }
+
+  removeUser(userUid:string) {
+    const path = 'users/' + userUid;
+    return this.db.object(path).remove();
   }
 }

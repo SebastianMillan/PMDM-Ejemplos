@@ -9,11 +9,15 @@ import { AppComponent } from './app.component';
 import { AngularFireModule} from '@angular/fire/compat'
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { UserListComponent } from './components/user-list/user-list.component';
+
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +26,8 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
     AngularFireAuthModule,
     NgbModule,
     FormsModule,
-    RouterModule
+    RouterModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

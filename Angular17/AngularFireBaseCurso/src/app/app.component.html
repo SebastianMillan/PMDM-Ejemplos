@@ -1,7 +1,12 @@
-<div *ngIf="authService.user | async as user; else login" class="loginDiv">
-  <span class="text-center fs-3 fw-bold">{{user.uid}} - {{user.email}}</span>
-  <div class="text-center w-50 p-3 mx-auto">
-    <button (click)="authService.logout()" class="btn btn-warning">Logout</button>
+<div class="container">
+  <div *ngIf="authService.user | async as user; else login" class="loginDiv">
+    <h1>USUARIO LOGEADO</h1>
+    <span class="text-center fs-3 fw-bold">{{user.uid}} - {{user.email}}</span>
+    <div class="text-center w-50 p-3 mx-auto">
+      <button (click)="authService.logout()" class="btn btn-warning">Logout</button>
+    </div>
+    <h2>LISTA USUARIOS</h2>
+    <app-user-list></app-user-list>
   </div>
 </div>
 
