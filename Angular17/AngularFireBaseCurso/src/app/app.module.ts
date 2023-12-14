@@ -6,8 +6,10 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AngularFireModule} from '@angular/fire/compat'
+import { AngularFireModule } from '@angular/fire/compat';
 import { environment } from '../environments/environment';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
 import { UserListComponent } from './components/user-list/user-list.component';
@@ -27,7 +29,8 @@ import { UserListComponent } from './components/user-list/user-list.component';
     NgbModule,
     FormsModule,
     RouterModule,
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]

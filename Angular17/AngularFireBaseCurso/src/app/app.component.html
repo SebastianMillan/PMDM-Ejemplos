@@ -5,6 +5,12 @@
     <div class="text-center w-50 p-3 mx-auto">
       <button (click)="authService.logout()" class="btn btn-warning">Logout</button>
     </div>
+    <h2>AÑADIR IMAGEN</h2>
+    <span>Imagen de usuario</span><br>
+    <input type="file" (change)="firestorage.upload($event)" accept=".png, .jpg, .jpeg"><br>
+    <div class="result" *ngIf="firestorage.downloadURL | async; let url">
+      <img [src]="url" alt="imagen" width="600px">
+    </div>
     <h2>LISTA USUARIOS</h2>
     <app-user-list></app-user-list>
   </div>

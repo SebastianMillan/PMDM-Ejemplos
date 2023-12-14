@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { environment } from '../environments/environment';
 import { AuthService } from './services/auth.service';
+import { FirestorageService } from './services/firestorage.service';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,6 @@ export class AppComponent {
   title = environment.title;
   email =! '';
   password = '';
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public firestorage: FirestorageService) { }
   
 }

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { map } from 'rxjs/operators';
-import { GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, User } from "firebase/auth";
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 
 
@@ -13,13 +13,15 @@ export class AuthService {
 
   email = '';
   password = '';
+  authUser!: any;
 
   constructor(public auth: AngularFireAuth, private db: AngularFireDatabase) { }
 
   //authState es un observable que nos va a dar información del usuario
   user = this.auth.authState.pipe(map(authState => {
     console.log('authState: ', authState);
-    if (authState!=null) {
+    if (authState != null) {
+      this.authUser=authState;
       return authState;
     } else {
       return null;
@@ -33,6 +35,7 @@ export class AuthService {
         console.log('user logado: ', user);
         this.email = '';
         this.password = '';
+        this.authUser=user.user;
         this.updateUserData(user.user);
       })
       .catch(error => {
@@ -52,6 +55,7 @@ export class AuthService {
         console.log('user logado: ', user);
         this.email = '';
         this.password = '';
+        this.authUser=user.user;
         this.updateUserData(user.user);
       })
       .catch(error => {
