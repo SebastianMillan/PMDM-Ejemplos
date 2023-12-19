@@ -10,6 +10,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { environment } from '../environments/environment';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -17,7 +18,8 @@ import { environment } from '../environments/environment';
 @NgModule({
   declarations: [
     AppComponent,
-    TableroComponent
+    TableroComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

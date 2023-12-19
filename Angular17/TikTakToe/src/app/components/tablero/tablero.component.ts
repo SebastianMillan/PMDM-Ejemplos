@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { log } from 'node:console';
 
 @Component({
   selector: 'app-tablero',
