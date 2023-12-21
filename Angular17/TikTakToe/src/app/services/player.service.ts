@@ -3,6 +3,9 @@ import {
   Firestore,
   addDoc,
   collection,
+  onSnapshot,
+  query,
+  where,
 } from '@angular/fire/firestore';
 
 const COLLECTION_PLAYER = 'player'
@@ -17,6 +20,7 @@ export class PlayerService {
   async newPlayer(name: string) {
     const docRef = await addDoc(collection(this.firestore, COLLECTION_PLAYER), {
       name: name,
+      winner: null,
     })
   }
 }

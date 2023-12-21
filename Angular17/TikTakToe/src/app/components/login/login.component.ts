@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { PlayerService } from '../../services/player.service';
 import { Router } from '@angular/router';
 import { GameService } from '../../services/game.service';
+import {collection, query, where, onSnapshot} from '@angular/fire/firestore'
 
 @Component({
   selector: 'app-login',
@@ -15,6 +16,7 @@ export class LoginComponent {
 
   createPlayer() {
     this.playerService.newPlayer(this.name);
+    this.gameService.newGame(this.name);
     this.router.navigateByUrl('/play')
   }
 }
